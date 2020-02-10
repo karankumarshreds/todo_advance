@@ -4,6 +4,17 @@
 	<title></title>
 </head>
 <body>
-<h1>This is the home page</h1>
+	<form method="POST" action="/">
+		{% csrf_token %}
+		{{ form.title }}
+		<input type="submit" name="create">
+	</form>
+	{% for tasks in tasks %}
+		<div>
+			<p> {{ tasks }} </p>
+			<a href="{% url 'edit' tasks.id%}">Edit</a>
+			<a href="{% url 'delete' tasks.id%}">Delete</a>
+		</div>
+	{%endfor%}
 </body>
 </html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Are you sure you wanna delete "{{ tasks }}"?</p>
+	<form method="POST">
+		{% csrf_token %}
+		<button>Delete</button>
+	</form>
+	<a href="{% url 'home'%}">Cancel</a>
+</body>
+</html>
